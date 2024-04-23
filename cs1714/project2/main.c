@@ -67,14 +67,14 @@ airlines: ???
     char key2[4];
     switch(decision){
       case 1:
-          printf("Enter Origin: ");
+          printf("Enter origin: ");
           scanf("%s", key1);
-          printf("Enter Destination: ");
+          printf("Enter destination: ");
           scanf("%s", key2);
           searchRecords(records, num_records, key1, key2, ROUTE);
           break;
       case 2:
-          printf("Enter the Origin Airport Code: ");
+          printf("Enter origin: ");
           scanf("%s", key1);
           searchRecords(records, num_records, key1, key2, ORIGIN);
           break;
@@ -94,7 +94,7 @@ airlines: ???
           free(records);
           return 0;
       default:
-          printf("ERROR: Incorrect input");
+          printf("Invalid choice.");
       
     }
     

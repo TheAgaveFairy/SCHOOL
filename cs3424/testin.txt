@@ -1,0 +1,17 @@
+c
+100
+oj
+Orange Juice
+10
+100
+A half gallon of orange juice.
+r
+12
+c
+3
+chips
+Wavy Potato Chips
+12
+35
+A salty snack.
+q

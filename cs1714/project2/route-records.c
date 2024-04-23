@@ -82,10 +82,11 @@ void searchRecords(RouteRecord* r, int length, const char* key1, const char* key
     int matches = 0;
   
     if (st == ORIGIN) {
+      puts("Searching by origin...");
       for (i = 0; i < length; i++){
            if (strcmp(r[i].origin, key1) == 0 ){
              matches += 1;
-             printf("Match! Airline: %s Route: (%s-%s)\n", r[i].airline, r[i].origin, r[i].destination);
+             printf("%s (%s-%s) ", r[i].airline, r[i].origin, r[i].destination);
              for (month = 0; month < 6; month++){
                sum_passengers[month] += r[i].passengers[month];
                total_passengers += r[i].passengers[month];
@@ -97,17 +98,19 @@ void searchRecords(RouteRecord* r, int length, const char* key1, const char* key
         puts("No match found!");
         return;
       }
-      printf("Total passengers for %s: %d\n", key1, total_passengers);
+      printf("\n%d matches were found.\n\nStatistics\n", matches);
+      printf("Total passengers:\t\t %d\n", total_passengers);
       for (month = 0; month < 6; month++){
-        printf("%d in Month %d\n", sum_passengers[month], month+1);
+        printf("Total Passengers in Month %d: \t%d\n", month+1, sum_passengers[month]);
       }
-      printf("Average per month: %lf", (double)total_passengers/6.0);
+      printf("\nAverage Passengers per month: %d", total_passengers/6);
       
     } else if (st == DESTINATION) {
+      puts("Searching by destination...");
       for (i = 0; i < length; i++){
          if (strcmp(r[i].destination, key1) == 0 ){
            matches += 1;
-           printf("Match! Airline: %s Route: (%s-%s)\n", r[i].airline, r[i].origin, r[i].destination);
+           printf("%s (%s-%s) ", r[i].airline, r[i].origin, r[i].destination);
            for (month = 0; month < 6; month++){
              sum_passengers[month] += r[i].passengers[month];
              total_passengers += r[i].passengers[month];
@@ -119,17 +122,19 @@ void searchRecords(RouteRecord* r, int length, const char* key1, const char* key
         puts("No match found!");
         return;
       }
-      printf("Total passengers for %s: %d\n", key1, total_passengers);
+      printf("\n%d matches were found.\n\nStatistics\n", matches);
+      printf("Total passengers: %d\n", total_passengers);
       for (month = 0; month < 6; month++){
-      printf("%d in Month %d\n", sum_passengers[month], month+1);
+      printf("Total Passengers in Month %d: \t%d\n", month+1, sum_passengers[month]);
       }
-      printf("Average per month: %lf", (double)total_passengers/6.0);
+      printf("\nAverage Passengers per month: %d", total_passengers/6);
       
     } else if (st == AIRLINE) {
+      puts("Searching by airline...");
       for (i = 0; i < length; i++){
          if (strcmp(r[i].airline, key1) == 0 ){
            matches += 1;
-           printf("Match! Airline: %s Route: (%s-%s)\n", r[i].airline, r[i].origin, r[i].destination);
+           printf("%s (%s-%s) ", r[i].airline, r[i].origin, r[i].destination);
            for (month = 0; month < 6; month++){
              sum_passengers[month] += r[i].passengers[month];
              total_passengers += r[i].passengers[month];
@@ -141,17 +146,19 @@ void searchRecords(RouteRecord* r, int length, const char* key1, const char* key
         puts("No match found!");
         return;
       }
-      printf("Total passengers for %s: %d\n", key1, total_passengers);
+      printf("\n%d matches were found.\n\nStatistics\n", matches);
+      printf("Total passengers: %d\n", total_passengers);
       for (month = 0; month < 6; month++){
-      printf("%d in Month %d\n", sum_passengers[month], month+1);
+      printf("Total Passengers in Month %d: \t%d\n", month+1, sum_passengers[month]);
       }
-      printf("Average per month: %lf", (double)total_passengers/6.0);
+      printf("\nAverage Passengers per month: %d", total_passengers/6);
       
     } else if (st == ROUTE) {
+      puts("Searching by route...");
       for (i = 0; i < length; i++) {
           if (strcmp(r[i].origin, key1) == 0 && strcmp(r[i].destination, key2) == 0){
             matches += 1;
-      printf("Match! Airline: %s Route: (%s-%s)\n", r[i].airline, r[i].origin, r[i].destination);
+      printf("%s (%s-%s) ", r[i].airline, r[i].origin, r[i].destination);
            for (month = 0; month < 6; month++){
              sum_passengers[month] += r[i].passengers[month];
              total_passengers += r[i].passengers[month];
@@ -163,11 +170,12 @@ void searchRecords(RouteRecord* r, int length, const char* key1, const char* key
         puts("No match found!");
         return;
       }
-      printf("Total passengers for %s: %d\n", key1, total_passengers);
+      printf("\n%d matches were found.\n\nStatistics\n", matches);
+      printf("Total passengers: %d\n", total_passengers);
       for (month = 0; month < 6; month++){
-      printf("%d in Month %d\n", sum_passengers[month], month+1);
+      printf("Total Passengers in Month %d: \t%d\n",  month+1, sum_passengers[month]);
       }
-      printf("Average per month: %lf", (double)total_passengers/6.0);
+      printf("\nAverage Passengers per month: %d", total_passengers/6);
     } else {
       puts("Some kind of error here!");
     }
